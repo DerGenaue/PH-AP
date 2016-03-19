@@ -8,6 +8,7 @@
 \usepackage{pgfplotstable}
 \usepackage{hyperref}
 \hypersetup{pdftitle={Trägheitsmoment}, pdfauthor={Daniel Schubert, Sebastian Neubauer}, pdfsubject={Physikpraktikum}}
+\usepackage{cleveref}
 \usepackage[separate-uncertainty=true]{siunitx}
 \pgfplotsset{width=13cm, height=7cm, compat=1.12}
 
@@ -22,6 +23,9 @@
 \renewcommand{\topfraction}{1.0}
 \renewcommand{\bottomfraction}{1.0}
 \renewcommand{\textfraction}{0.0}
+
+% Allow centered columns with fixed width
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 \newcommand{\stand}{18.03.16}
 \pagestyle{fancy}
@@ -78,112 +82,91 @@ Anschließend muss noch die Puppe selbst vermessen werden, damit sie mit dem Men
 \subsection{Eigenschaften des Menschen}
 Analog zu Puppe, werden die Größen des großen Drehtellers für den Menschen bestimmt ($D^*_g$, $J_g$). Zusätzlich wird das Eigenträgheitsmoment des Drehtellers noch abgeschätzt durch einen Zylinder:
 \begin{equation}\label{equ:TraegheitsmomentZylinder}
-J_g = \frac{\overbrace{\pi h_g R_g^2}^m \cdot  R_g^2}{2}
+J_g = \frac{\overbrace{\pi h_g R_g^2 \cdot \rho}^m \cdot  R_g^2}{2}
 \end{equation}
 Die Masse wird durch das Volumen und die gegebene Dichte geschätzt, dafür müssen die Höhe $h_g$ und der Radius $R_g$ gemessen werden.
 
 Auch hier wird die Schwingungsdauer $T$ gemessen, wenn der Mensch in verschiedenen Posen auf dem Drehteller steht. Masse $m_m$, Größe $h_m$, Hüftumfang $u_m$, Armlänge $l_{am}$, Armumfang $u_{am}$, Beinlänge $l_{bm}$, Beinumfang $u_{bm}$ und Kopfumfang $u_{km}$ des Menschen müssen auch erfasst werden.
 
-\section{Experimentelles Vorgehen und Messergebnisse}
+\section{Experimentelles Vorgehen}
 Sowohl bei den Gewichten als auch beim großen Drehteller wurde die Nummer 2 verwendet. Beim großen Drehteller wurde für die Bestimmung des Gewichts bzw. des Eigenträgheitsmoments die Stange vernachlässigt.
 
-\begin{enumerate}
-\item \textbf{Rückstellendes Drehmoment des kleinen Drehtellers}
+Die Kräfte bei Auslenkungen des kleinen Drehtellers wurden mit einem Federkraftmesser gemessen, dessen Genauigkeit bei ca. $\SI{0.03}{N}$ liegt, weil die Haftung im Messgerät sehr hoch war und sich deshalb bei geringen Winkeländerungen das Ergebnis nicht geändert hat. Die Messgenauigkeit des stärkeren Federkraftmessers, der für den großen Teller verwendet wurde, liegt bei $\SI{0.2}{N}$.
 
-Die Kräfte bei Auslenkungen des kleinen Drehtellers wurden mit einem Federkraftmesser gemessen, dessen Genauigkeit bei ca. $\SI{0.03}{N}$ liegt, weil die Haftung im Messgerät sehr hoch war und sich deshalb bei geringen Winkeländerungen das Ergebnis nicht geändert hat.
-\begin{table}
-\begin{center}
-\begin{tabular}{cccc}\hline
-\textbf{Frequenz} & \textbf{Drehmoment} & \textbf{Leistung} & \textbf{Wirkungsgrad} \\
-\textbf{$f$ (Hz)} & \textbf{$M$ (Nm)} & \textbf{$P_\mathrm{m}$ (W)} & \textbf{$\eta$ (\%)} \\
-\hline
-$4,10\pm 0,20$ & $0,176\pm 0,017$ & $4,52\pm 0,50$ & $3,48\pm 0,56$ \\
-$4,50\pm 0,20$ & $0,153\pm 0,015$ & $4,32\pm 0,47$ & $3,33\pm 0,53$ \\
-$5,00\pm 0,20$ & $0,117\pm 0,012$ & $3,67\pm 0,40$ & $2,83\pm 0,45$ \\
-$5,40\pm 0,20$ & $0,059\pm 0,007$ & $1,98\pm 0,25$ & $1,53\pm 0,27$ \\
-$5,80\pm 0,20$ & $0,025\pm 0,005$ & $0,90\pm 0,19$ & $0,69\pm 0,17$ \\\hline
-\end{tabular}
-\caption{\label{tab:DrehmomentKlein}Kenndaten des Stirlingmotors bei einer Heizleistung
-    $P_\mathrm{h}=130\pm 15$~W: Drehmoment $M$, abgegebene mechanische Leistung
-    $P_\mathrm{m}$ und Wirkungsgrad $\eta$ bei der Frequenz $f$}
-\end{center}
-\end{table}
-\end{enumerate}
-
-
-Für die meisten Längenmessungen wurde ein Maßband verwendet, dabei schätzen wir die Ungenauigkeit auf $\SI{2}{mm}$. Nur für die Abmessung der Gewichte und die Dicke des großen Drehtellers wurde ein Messschieber verwendet, dessen Genauigkeit wir auf $\SI{1}{mm}$ schätzen.
-
-Die Messgenauigkeit des stärkeren Federkraftmessers, der für den großen Teller verwendet wurde, liegt bei $\SI{0.2}{N}$.
+Für die meisten Längenmessungen wurde ein Maßband verwendet, dabei schätzen wir die Ungenauigkeit auf $\SI{2}{mm}$. Nur für die Abmessung der Gewichte und die Dicke des großen Drehtellers wurde ein Messschieber verwendet, dessen Genauigkeit wir auf $\SI{1}{mm}$ schätzen. Bei den zylinderförmigen Gewichten wurden die Schrauben zum Festmachen vernachlässigt.
 
 Für die Messung von kleinen Gewichten wurde eine Küchenwaage mit einer Genauigkeit von $\SI{1}{g}$ verwendet. Die Menschen wurden mit einer anderen Waage gewogen, deren Genauigkeit bei ca. $\SI{1}{kg}$ liegt.
 
 Bei Zeitmessungen für den kleinen Drehteller wurde eine Lichtschranken-Uhr verwendet, deren Genauigkeit wir auf $\SI{1}{ms}$ schätzen, weil bei mehreren Messungen kein System in weiteren Ziffern erkennbar war. Für den großen Teller, wurde eine Stoppuhr und ein Computer mit Spannungsmessgerät verwendet. Die Genauigkeit der Zeitmessungen mit der Stoppuhr liegt bei ca. $\SI{0.1}{s}$ bedingt durch die Schwankung der Reaktionszeit (sowohl Beginn als auch Ende der Messung sind um die Reaktionszeit verschoben).
 
-Die Auslenkungswinkel wurden mit Beschriftungen und dem Auge abgeschätzt, sodass sich eine Ungenauigkeit von $\SI{3}{^\circ}$ ergibt.
+Die Auslenkungswinkel wurden mit Beschriftungen und dem Auge abgeschätzt, sodass sich eine Ungenauigkeit von $\SI{2}{^\circ}$ ergibt.
 
 \section{Ergebnisse}
-\subsection{Aufgabe 10}
+% Aufgabe 10
 \input{DiagA1.tex}
+Die Ausgleichsgerade für die Kraftmessung in Abhängigkeit von der Auslenkung des kleinen Drehtellers hat folgende Gleichung:
+\begin{equation}
+F = \SI{0.004 \pm 0.011}{N} + \underbrace{\SI{2.17 \pm 0.09}{10^{-3}N}}_{\text{Steigung } a_1} \cdot \frac{180}{\pi} \cdot \varphi
+\end{equation}
+Wie leicht erkannt werden kann, liegt der Ursprung innerhalb des Fehlerbereichs der Geraden. $D^*$ kann durch Gleichung \ref{equ:Drehmoment} berechnet werden, indem nach $D^*$ umgestellt wird: $D^* = -r_k \cdot a_1 \cdot \frac{180}{\pi} = \SI{0.0236 \pm 0.0010}{Nm}$\\
+Dabei wurde die Unsicherheit der Geradensteigung und des Radius miteinberechnet.
 
-\subsection{Aufgabe 11}
+% Aufgabe 11
+Um das Eigenträgheitsmoment des Tellers zu bestimmen, wurden Gewichte in unterschiedlichen Abständen angehängt.
+Die Zylinder haben die folgenden Maße: $m = \SI{49}{g}$, $h = \SI{8}{mm}$, $d = \SI{3.0}{cm}$
+\begin{table}[h]
+\begin{center}\label{tab:Gewichte}
+\begin{tabular}{r|ccccc}\hline
+\textbf{Abstand} ($\SI{\pm 0.2}{cm}$) [cm] & $0$ & $8$ & $11$ & $15$ & $19$ \\
+\hline
+\textbf{Trägheitsmoment $J_Z$} [$10^{-3}$kgm$^2$] & $0$ & $0.317$ & $0.596$ & $1.106$ & $1.772$ \\
+\textbf{$md^2$} [$10^{-3}$kgm$^2$]                & $0$ & $0.314$ & $0.593$ & $1.103$ & $1.769$ \\
+\hline\end{tabular}
+\caption{Trägheitsmomente der angehängten Gewichte}
+\end{center}
+\end{table}
+
+$\Delta (md^2) = \Delta d \cdot 2md \Rightarrow \SI{0.049}{kg} \cdot (\SI{0.11}{m})^2 = \SI{0.593 \pm 0.022}{10^{-3} kgm^2}$\\
+Es kann festgestellt werden, dass die Ungenauigkeit des Abstands $r$ einen deutlich größeren Einfluss auf das Trägheitsmoment hat als wenn der Zylinder als Punktmasse betrachtet wird.
 \input{DiagA2.tex}
+Die Ausgleichsgerade für $T^2$ in Abhängigkeit von $2md^2$ hat folgende Gleichung:
+\begin{equation}
+T^2 = \underbrace{\SI{1697 \pm 21}{1 \over Nm}}_{a_2} \cdot 2md^2 + \underbrace{\SI{0.46 \pm 0.04}{s^2}}_{a_3}
+\end{equation}
 
-\subsection{Aufgabe 13}
+Aus Gleichung (18) in der Angabe folgt
+\begin{equation}
+J_k = \frac{a_3}{a_2}
+\end{equation}
+und
+\begin{equation}
+D^* = \frac{4\pi^2}{a_2}.
+\end{equation}
+Damit können $D^* = \SI{0.02326 \pm 0.00028}{Nm}$ und $J_k = \SI{2.71 \pm 0.24}{10^{-4}kgm^2}$ berechnet werden. Da $J_k$ auch von $a_3$ abhängt, muss hier noch diese Unsicherheit miteinberechnet werden. In den Unsicherheiten von $J_k$ ist auch die Unsicherheit der Masse enthalten. Der jetzt ausgerechnete Wert von $D^*$ ist mehr als $3\times$ so genau wie der vorherige Wert (liegt aber im Unsicherheitsbereich des vorherigen Wertes), deshalb sollte mit diesem Wert weitergerechnet werden.
+
+% Aufgabe 12
+Um das Trägheitsmoment der Puppe in den verschiedenen Positionen ($J_{p1}$ mit angelegten Armen und $J_{p2}$ mit ausgestreckten Armen) zu berechnen, kann auch Gleichung (18) aus der Aufgabenstellung zu Hilfe genommen werden. Damit kommt man auf folgende Gleichung ($T_0$ ist die Schwingungsdauer ohne Gewichte und ohne Puppe)
+\begin{equation}
+J_p = J_k \cdot \left(\frac{T_p^2}{T_0^2} - 1\right)
+\end{equation}
+und $J_{p1} = \SI{7.4 \pm 0.8}{10^{-5}kgm^2}$, bzw. $J_{p2} = \SI{28.5 \pm 1.2}{10^{-5}kgm^2}$. Das Verhältnis der Trägheitsmomente ist damit ca. $\frac{J_{p2}}{J_{p1}} = 3.9$
+
+% Aufgabe 13
 \input{DiagA4.tex}
+Die Funktion der Ausgleichsgerade für die Bestimmung der Winkelrichtgröße des großen Drehtellers lautet wie folgt:
+\begin{equation}
+F = \SI{0.06 \pm 0.06}{N} + \underbrace{\SI{0.1280 \pm 0.0011}{N}}_{a_4} \cdot \frac{180}{\pi} \cdot \varphi
+\end{equation}
+Analog zu Aufgabe 10 kann $D^* = \SI{2.127 \pm 0.024}{Nm}$ berechnet werden.
+
+% Aufgabe 14
+Aus dem Volumen des Zylinders lässt sich auf sein Trägheitsmoment schließen: $J_g = \frac{\pi h_g \rho R_g^4}{2} = \SI{0.69 \pm 0.04}{kgm^2}$
+
+% Aufgabe 15
+$J_g$ lässt sich sowohl aus der Schwingungsdauer und dem Eigenträgheitsmoment als auch aus den statischen Drehmomenten bestimmen. Die dynamische Berechnung geht wie folgt: $J_g = \frac{D^*T^2}{4\pi^2} = $
 
 \section{Diskussion}
 
 \section{Zusammenfassung}
-
-\begin{center}
-%\parbox{7cm}{\small
-Dies ist ein Beispiel, wie man eine
-Formel in der Ausarbeitung setzt.
-\begin{equation}\label{Linsengleichung}
-\frac{f}{a} + \frac{f'}{a'} = 1
-\end{equation}
-Die Gleichung~(\ref{Linsengleichung}) stellt die
-allgemeine Form der Linsengleichung dar.%}
-\end{center}
-
-\subsection{Tabellen}
-Tabellen werden durchnummeriert, so kann im  Text  darauf  verwiesen werden.
-Tabellen sollen mit einer  Titelzeile und Spalten"uberschriften versehen sein.
-Daten werden entweder im Text oder in Tabellen gezeigt, aber nicht in beidem.
-
-Tabelle~\ref{tab:Beispiel} ist ein Beispiel, wie Tabellen formatiert
-werden können.
-\begin{table}
-\begin{center}
-\begin{tabular}{cccc}
-\hline
-\textbf{Frequenz} & \textbf{Drehmoment}
-           & \textbf{Leistung} & \textbf{Wirkungsgrad} \\
-\textbf{$f$ (Hz)} & \textbf{$M$ (Nm)}
-           & \textbf{$P_\mathrm{m}$ (W)} & \textbf{$\eta$ (\%)} \\ \hline
-$4,10\pm 0,20$ & $0,176\pm 0,017$ & $4,52\pm 0,50$ & $3,48\pm 0,56$ \\
-$4,50\pm 0,20$ & $0,153\pm 0,015$ & $4,32\pm 0,47$ & $3,33\pm 0,53$ \\
-$5,00\pm 0,20$ & $0,117\pm 0,012$ & $3,67\pm 0,40$ & $2,83\pm 0,45$ \\
-$5,40\pm 0,20$ & $0,059\pm 0,007$ & $1,98\pm 0,25$ & $1,53\pm 0,27$ \\
-$5,80\pm 0,20$ & $0,025\pm 0,005$ & $0,90\pm 0,19$ & $0,69\pm 0,17$ \\ \hline
-\end{tabular}
-\caption{\label{tab:Beispiel}Kenndaten des Stirlingmotors bei einer Heizleistung
-    $P_\mathrm{h}=130\pm 15$~W: Drehmoment $M$, abgegebene mechanische Leistung
-    $P_\mathrm{m}$ und Wirkungsgrad $\eta$ bei der Frequenz $f$}
-\end{center}
-\end{table}
-
-
-
-\subsection{Abbildungen}
-Abbildung~\ref{abb:beispiel} ist ein Beispiel für die Formatierung
-einer Abbildung.
-\begin{figure}[t]
-\begin{center}
-%\includegraphics*[angle=270, width=11cm]{beispielbild}
-\caption{Frequenzabhängigkeit des Drehmoments der Stirlingmaschine.
-Die gestrichelte Linie dient der Augenführung}\label{abb:beispiel}
-\end{center}
-\end{figure}
 
 \end{document}

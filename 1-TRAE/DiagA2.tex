@@ -4,7 +4,7 @@
 \begin{tikzpicture}
 \begin{axis}[
 	%title=Winkelrichtgröße bestimmen,
-	xlabel={$2mr^2$ [kg m$^2$]},
+	xlabel={$2md^2$ [kgm$^2$]},
 	ylabel={$T^2$ [s$^2$]},
 	grid=major,
 	legend style={at={(0,1)},anchor=north west}
@@ -25,7 +25,7 @@
 	\pgfplotstableread{parameters.dat}\parameters % Open the file Gnuplot wrote
 	\pgfplotstablegetelem{0}{0}\of\parameters \pgfmathsetmacro\paramA{\pgfplotsretval} % Get first element, save into \paramA
 	\pgfplotstablegetelem{1}{0}\of\parameters \pgfmathsetmacro\paramB{\pgfplotsretval}
-	$\pgfmathprintnumber{\paramB} \cdot 2mr^2
+	$\pgfmathprintnumber{\paramB} \cdot 2md^2
 		+ \pgfmathprintnumber{\paramA}$
 }
 
@@ -33,9 +33,9 @@
 	red,
 	only marks,
 	mark = |,
-	mark size=2,
+	mark size = 2,
 	error bars/.cd,
-	y dir=both,
+	y dir = both,
 	y explicit,
 	x dir = both,
 	x explicit
@@ -52,9 +52,9 @@
 	blue,
 	only marks,
 	mark = |,
-	mark size=2,
+	mark size = 2,
 	error bars/.cd,
-	y dir=both,
+	y dir = both,
 	y explicit,
 	x dir = both,
 	x explicit
@@ -69,6 +69,6 @@
 
 \end{axis}
 \end{tikzpicture}
-\caption{Trägheitsmoment bestimmen}\label{dia:A2}
+\caption{Trägheitsmoment des kleinen Drehtellers bestimmen}\label{dia:A2}
 \end{center}
 \end{figure}

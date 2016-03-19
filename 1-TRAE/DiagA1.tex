@@ -25,24 +25,25 @@
 	blue,
 	only marks,
 	mark = |,
-	mark size=1.5,
+	mark size = 1.5,
 	error bars/.cd,
-	y dir=both,
-	y fixed=0.03,
+	y dir = both,
+	y fixed = 0.03,
 	x dir = both,
-	x fixed=4 % 4° Abweichung
+	x fixed = 2 % 2° Abweichung
 ] table {A1.txt};
 
-\addlegendentry{
-	\pgfplotstableread{parameters.dat}\parameters % Open the file Gnuplot wrote
-	\pgfplotstablegetelem{0}{0}\of\parameters \pgfmathsetmacro\paramA{\pgfplotsretval} % Get first element, save into \paramA
-	\pgfplotstablegetelem{1}{0}\of\parameters \pgfmathsetmacro\paramB{\pgfplotsretval}
-	$\pgfmathprintnumber{\paramB} \cdot \varphi
-		+ \pgfmathprintnumber{\paramA}$
-}
+% We compute our own error values with a given o_y
+%\addlegendentry{
+%	\pgfplotstableread{parameters.dat}\parameters % Open the file Gnuplot wrote
+%	\pgfplotstablegetelem{0}{0}\of\parameters \pgfmathsetmacro\paramA{\pgfplotsretval} % Get first element, save into \paramA
+%	\pgfplotstablegetelem{1}{0}\of\parameters \pgfmathsetmacro\paramB{\pgfplotsretval}
+%	$\pgfmathprintnumber{\paramB} \cdot \varphi
+%		+ \pgfmathprintnumber{\paramA}$
+%}
 
 \end{axis}
 \end{tikzpicture}
-\caption{Winkelrichtgröße bestimmen}\label{dia:A1}
+\caption{Winkelrichtgröße des kleinen Drehtellers bestimmen}\label{dia:A1}
 \end{center}
 \end{figure}
