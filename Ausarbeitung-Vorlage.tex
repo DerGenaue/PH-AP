@@ -1,0 +1,271 @@
+%&PDFLaTeX
+\documentclass[a4paper,11pt]{article}
+\usepackage{german}
+\usepackage[utf8]{inputenc} % Eigentlich kann man damit dann auch Umlaute verwenden.
+                            % Allerdings verstehen nicht alle Editoren utf8, daher
+                            % sind die Umlaute in diesem Text mit Anf"uhrungszeichen.
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.2ex}
+\setlength{\headheight}{26pt}
+\addtolength{\topmargin}{-0.2in}
+\addtolength{\headsep}{0.2in}
+\addtolength{\oddsidemargin}{-0.2in}
+\addtolength{\textwidth}{0.5in}
+
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+
+\newcommand{\stand}{08.12.08}
+\pagestyle{fancy}
+\rhead{\bf Stand: \stand \\ Seite \thepage}
+\lhead{\bf Hinweise zur\\ Ausarbeitung}
+\chead{\bf (AUS)}
+\rfoot{}
+\lfoot{}
+\cfoot{}
+
+\begin{document}
+%\thispagestyle{empty}
+\begin{center}
+% Prinzipiell kann LaTeX auch Titelseiten erzeugen, ich habe mich
+% hier trotzdem für die h"andische Variante entschieden.
+\textbf{\Large Hinweise zum Schreiben einer Ausarbeitung}\\[1ex]
+\textbf{\large (Physikalisches Praktikum f\"ur Physiker)}\\[5ex]
+       Autor: M. Sa"s\\
+       Fakult"at f"ur Physik\\
+       Technische Universit"at M"unchen\\[1ex]
+       \stand
+\end{center}
+
+\tableofcontents
+\clearpage
+
+Machen Sie sich einmal die M"uhe, eine eine vern"unftig strukturierte Ausarbeitung als 
+\glqq Vorlage\grqq\ zu erstellen, die Sie dann durch das ganze Praktikum (evtl. sogar
+das Fortgeschrittenenpraktikum) verwenden k"onnen.
+
+Formulieren Sie die Ausarbeitung in ganzen S"atzen. Eine Stichpunktsammlung
+mit Rechnungen ist nicht ausreichend. Die L"ange der Ausarbeitung darf aber 10 
+Seiten nicht "uberschreiten. 
+Was dar"uber hinaus geht, wird nicht gewertet!
+
+\section{Struktur einer Ausarbeitung}\label{sec:struktur}
+Der typische Aufbau einer wissenschaftlichen Arbeit besteht aus:
+\begin{enumerate}
+\item Einleitung\\[-1.7em] % Der Abstand zwischen den Aufz"ahlungspunkten war mir hier zu gross.
+\item Beschreibung der verwendeten Methoden\\[-1.7em]
+\item Experimentelles Vorgehen\\[-1.7em]
+\item Ergebnisse (mit Betrachtung der Unsicherheiten)\\[-1.7em]
+\item Diskussion der Ergebnisse\\[-1.7em]
+\item Zusammenfassung\\[-1.7em]
+\item Anhang (wenn nötig)\\[-1.7em]
+\item Literaturverzeichnis\\
+\end{enumerate}
+An diesem Aufbau sollten Sie sich orientieren, wenn Sie Ihre Ausarbeitung
+schreiben. Die Grenzen zwischen den einzelnen Bereichen können dabei
+durchaus variieren. Es kann zweckmäßig sein, einzelne Punkte zusammenzufassen
+(z.B. Methoden und experimentelles Vorgehen, Ergebnisse und Diskussion,
+Diskussion und Zusammenfassung).
+
+Bei manchen Versuchen, bei denen verschiedene Methoden verwendet werden,
+lassen sich auch die Bereiche 2-5 für jede Methode einzeln ausführen.
+
+Der Aufbau muss aber so sein, dass klar nachvollziehbar ist, was Sie
+gemacht haben, und welcher Teil der Ausarbeitung zu welchem Teil
+des Versuches gehört.
+
+\subsection{Die Einleitung}
+  In der Einleitung soll die Idee des Versuches kurz wiedergegeben werden.
+  Sie soll h"ochstens zwei bis drei S"atze umfassen, au"ser es werden darin 
+  die zu manchen Versuchen vorhandenen  \glqq Vor"uberlegungen\grqq\ behandelt.
+\subsection{Die Beschreibung der verwendeten Methoden}
+  Hier wird die verwendete Methode kurz skizziert. Dabei sollen die für die 
+  Auswertung wichtigen Formeln explizit angegeben werden.
+  Die Beschreibung muss aber nicht so detailliert sein, wie die Versuchsanleitung,
+  es ist sinnvoller, auf die Versuchsanleitung zu verweisen (s. Literaturverzeichnis).
+  Allerdings müssen alle Größen, die gemessen oder verwendet werden, benannt sein.
+\subsection{Das Experimentelle Vorgehen}
+  In diesem Punkt wird beschrieben, wie tatsächlich gemessen wurde, z.B. wie viele
+  Messungen gemacht wurden, oder mit welcher Apparatur und welchen Geräten Sie gemessen 
+  haben (falls vorhanden Ger"atenummer, o."a.).  
+\subsection{Die Ergebnisse}
+   Geben Sie Ihre Messergebnisse (nicht jedoch alle Einzelmessungen) mit Unsicherheiten an,
+          und f"uhren auf, welche Unsicherheiten ber"ucksichtigt wurden, und welche nicht.
+
+   Stellen Sie Ihre Messdaten anschaulich in Graphen oder kurzen Tabellen dar, 
+          und beschreiben diese kurz.
+
+   Abschlie"send wird das aus den Messergebnissen gewonnene Endergebnis mit Unsicherheit angegeben.
+
+   Die ausf"uhrliche Fehlerrechnung und l"angere Zwischenrechnungen sind meist besser in 
+          einem Anhang als im Text aufgehoben.
+\subsection{Die Diskussion}
+   Diskutieren Sie Ihr Ergebnis: Was sagt es aus? Ist es realistisch?
+
+   Falls dieselbe Gr"o"se auf unterschiedliche Arten bestimmt wurde, m"ussen die 
+   Ergebnisse vergleichend diskutiert werden.
+
+   Wenn m"oglich ist das Ergebnis mit Literaturwerten zu vergleichen (Zitate nicht vergessen!)
+   Mögliche Gründe für eventuelle Abweichungen müssen angeführt werden.
+\subsection{Die Zusammenfassung}
+   Fassen Sie die wichtigsten Punkte des Versuchs noch einmal zusammen.
+   
+\subsection{Der Anhang}
+   In einem Anhang kann all das dargestellt werden, was für den Textfluss
+   der eigentlichen Ausarbeitung zu lang ist. Dies sind im Praktikum
+   hauptsächlich längere Rechnungen, z.B. eine ausführliche Fehlerrechnung.
+   Außerdem kann die Beantwortung der Fragen zu den Versuchen im 
+   Anhang erfolgen. % (nur Semesterpraktikum).
+
+   Die Rohdaten der Messungen können im Anhang (und nicht
+   im Text) tabelliert werden. Dies ist hilfreich, wenn das Protokoll nur
+   schwer lesbar ist (sollte eigentlich nicht vorkommen!), oder um die Versuche
+   \glqq komplett\grqq\ zu archivieren. 
+\subsection{Das Literaturverzeichnis}
+   Wenn Sie Informationen verwenden, die nicht von Ihnen selbst stammen, müssen
+   Sie die Quelle zitieren. Im Praktikum wird man meist zumindest die Anleitung als
+   Referenz angeben. Aber auch bei Literaturwerten, mit denen die gemessenen Werte
+   verglichen werden, muss die Herkunft angegeben werden.
+   
+   Die Referenz auf die vorliegenden Hinweise kann z.B. so aussehen:
+   \begin{enumerate}
+   \item M.~Saß, \glqq Hinweise zum Schreiben einer Ausarbeitung\grqq, \stand \\
+         Bezugsquelle:\\
+         {\small http://www.ph.tum.de/studium/betrieb/praktika/anfaenger/anleitungen/AUS.pdf} 
+   \end{enumerate}
+
+\section{Was muss in die Anleitung?}
+%Folgende Punkte m"ussen (zwingend) in der Ausarbeitung enthalten sein:
+\begin{enumerate}
+\item \textbf{Namen und Gruppennummer}\\[-2em]
+\item \textbf{Titel des Experiments}\\[-2em]
+\item \textbf{Datum der Durchf"uhrung}\\[-2em]
+\item \textbf{Inhaltsverzeichnis} (nicht zwingend, aber sinnvoll)\newline
+  Es erleichtert (sowohl Ihnen als auch dem Korrektor) zu überprüfen, 
+  ob die Ausarbeitung vollständig ist und eine vernünftige Struktur hat.
+\item[]\hspace*{-1.8em} Diese ersten vier Punkte können z.B. auf einer 
+  Titelseite zusammengefasst sein.
+
+\item \textbf{Seitennummerierung}
+
+\item \textbf{Experimentbeschreibung}\\[-2em]
+\item \textbf{Ergebnisse mit Unsicherheiten}\\[-2em]
+\item \textbf{Diskussion der Ergebnisse}\\[-2em]
+\item \textbf{Referenzen}
+\item[]\hspace*{-1.8em} Die letzten vier Punkte betreffen die
+   Struktur der Ausarbeitung (s.~Abschnitt~\ref{sec:struktur}).
+\end{enumerate}
+
+
+\section{Was gilt es zu vermeiden?}
+\begin{enumerate}
+\item L"angere Messwerttabellen geh"oren (wenn "uberhaupt) nur in einen Anhang.
+\item L"angere Rechnungen oder Umformungen sollten im Anhang beigef"ugt werden.
+      Dies gilt auch f"ur eine \emph{ausf"uhrliche} Fehlerrechnung. 
+\item Die Angabe von Ergebnissen mit zu vielen Stellen ist nicht nur
+      unschön, sondern falsch.\newline 
+      Wert und Unsicherheit sollen die gleiche Genauigkeit haben. Die Angabe
+      der Unsicherheit auf mehr als zwei signifikante Stellen ist im Normalfall
+      nicht sinnvoll.
+\item Offensichtlich falsche Ergenisse dürfen nicht einfach so stehen gelassen werden.
+      Meistens hilft ein nochmaliges Nachrechnen. Falls der Fehler auch dann nicht
+      aufzufinden ist, muss das Ergebnis mindestens kommentiert werden (s.~Diskussion).
+\end{enumerate}
+
+
+\section{Formattierungsfragen}
+\subsection{Text und Überschriften}
+Wählen Sie eine gut lesbare Schriftgröße (10-12~pt), die Sie für den 
+ganzen Text beibehalten.%, und einen  Zeilenabstand von etwa 1,5. 
+
+Überschriften und Unterüberschriften sollen nummeriert,
+und ihrer Hierarchie entsprechend hervorgehoben werden (Größe, Fettdruck, etc.)
+
+\subsection{Formeln}
+Formeln und Gleichungen werden in eigenen Zeilen gesetzt und nummeriert. 
+So kann man sp"ater im Text darauf verweisen. 
+\begin{center}
+\parbox{7cm}{\small
+Dies ist ein Beispiel, wie man eine 
+Formel in der Ausarbeitung setzt.
+\begin{equation}\label{Linsengleichung}
+\frac{f}{a} + \frac{f'}{a'} = 1
+\end{equation} 
+Die Gleichung~(\ref{Linsengleichung}) stellt die
+allgemeine Form der Linsengleichung dar.}
+\end{center}
+
+\subsection{Tabellen}
+Tabellen werden durchnummeriert, so kann im  Text  darauf  verwiesen werden.
+Tabellen sollen mit einer  Titelzeile und Spalten"uberschriften versehen sein.
+Daten werden entweder im Text oder in Tabellen gezeigt, aber nicht in beidem.
+
+Tabelle~\ref{tab:Beispiel} ist ein Beispiel, wie Tabellen formatiert 
+werden können.
+\begin{table}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+\textbf{Frequenz} & \textbf{Drehmoment} 
+           & \textbf{Leistung} & \textbf{Wirkungsgrad} \\ 
+\textbf{$f$ (Hz)} & \textbf{$M$ (Nm)} 
+           & \textbf{$P_\mathrm{m}$ (W)} & \textbf{$\eta$ (\%)} \\ \hline 
+$4,10\pm 0,20$ & $0,176\pm 0,017$ & $4,52\pm 0,50$ & $3,48\pm 0,56$ \\
+$4,50\pm 0,20$ & $0,153\pm 0,015$ & $4,32\pm 0,47$ & $3,33\pm 0,53$ \\
+$5,00\pm 0,20$ & $0,117\pm 0,012$ & $3,67\pm 0,40$ & $2,83\pm 0,45$ \\
+$5,40\pm 0,20$ & $0,059\pm 0,007$ & $1,98\pm 0,25$ & $1,53\pm 0,27$ \\
+$5,80\pm 0,20$ & $0,025\pm 0,005$ & $0,90\pm 0,19$ & $0,69\pm 0,17$ \\ \hline
+\end{tabular}
+\caption{\label{tab:Beispiel}Kenndaten des Stirlingmotors bei einer Heizleistung 
+    $P_\mathrm{h}=130\pm 15$~W: Drehmoment $M$, abgegebene mechanische Leistung
+    $P_\mathrm{m}$ und Wirkungsgrad $\eta$ bei der Frequenz $f$}
+\end{center}
+\end{table} 
+
+
+
+\subsection{Abbildungen}
+Abbildung~\ref{abb:beispiel} ist ein Beispiel für die Formatierung
+einer Abbildung.
+\begin{figure}[t]
+\begin{center}
+%\includegraphics*[angle=270, width=11cm]{beispielbild}
+\caption{Frequenzabhängigkeit des Drehmoments der Stirlingmaschine.
+Die gestrichelte Linie dient der Augenführung}\label{abb:beispiel}
+\end{center}
+\end{figure} 
+
+Abbildungen werden nummeriert und durch eine Bildunterschrift oder
+Legende kurz erläutert. Im Text muss Bezug auf die Abbildung 
+genommen werden, dort werden die Abbildungen beschrieben. 
+
+Die Achsen eines Graphen m"ussen beschriftet sein (aufgetragene Gr"o"se mit Einheit).
+Zumindest einige Datenpunkte sollen mit Fehlerbalken versehen werden.
+
+Die gezeigten Daten sollen die Fl"ache eines Graphen ausnutzen. Die Achsen d"urfen 
+"uber den Wertebereich der Daten nicht zu weit hinausgehen. Es ist nicht
+erforderlich, dass der Ursprung des Koordinatensystems immer in der Graphik sichtbar ist.
+
+\section{Was ist sonst zu beachten?}
+\begin{enumerate}
+\item Alle Gr"o"sen m"ussen  mit Einheiten angegeben werden (es sei denn, sie sind dimensionslos).\\
+      Nach M"oglichkeit sind SI-Einheiten zu verwenden (oder die im jeweiligen Fachgebiet 
+      "ubliche Nomenklatur).
+      Die Einheit wird "ubelicherweise mit einem Leerzeichen von der Zahl abgesetzt 
+      und nicht kursiv gesetzt (z.B. $3,0$~V). 
+\item Es sind geeignete \glqq Vorsilben\grqq\ ($\mu$, m, k, M, ...) zu verwenden 
+      (z.B. $3,0$~mm, und nicht $0,0030$~m).
+\item Gr"o"se und Unsicherheit sind mit der gleichen Genauigkeit und Einheit anzugeben.
+      (z.B. $(3,00 \pm 0,04)$~m, und nicht $3~\mathrm{m}\pm 4~\mathrm{cm}$).\newline
+      Ist die führende Ziffer der Unsicherheit eine Eins oder Zwei wird die Unsicherheit
+      auf zwei signifikante Stellen angegeben, sonst reicht auch eine Stelle.
+\item Es ist "ublich, in der Experimentbeschreibung eine personalisierte
+      Formulierung zu vermeiden (Also: \glqq Es wurde gemessen\grqq\  
+      statt \glqq Wir haben gemessen\grqq)
+\end{enumerate}
+
+\end{document}

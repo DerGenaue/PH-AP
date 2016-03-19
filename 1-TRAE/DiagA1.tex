@@ -1,0 +1,48 @@
+\begin{figure}[h]
+\begin{center}
+%\includegraphics*[angle=270, width=11cm]{beispielbild}
+\begin{tikzpicture}
+\begin{axis}[
+	%title=Winkelrichtgröße bestimmen,
+	xlabel={Auslenkung [$^\circ$]},
+	ylabel={Kraft [N]},
+	grid=major,
+	legend style={at={(0,1)},anchor=north west}
+]
+
+\addplot [no markers, red] gnuplot [raw gnuplot] {
+	f(x) = a + b * x; % Fit function
+	a = 0.01; b = 0.002; % Set reasonable starting values here
+	set fit errorvariables;
+	fit f(x) 'A1.txt' via a, b;
+	plot [x=-180:180] f(x);
+	set print 'parameters.dat'; % Open a file to save the parameters into
+	print a, a_err; % Write the parameters to file
+	print b, b_err;
+};
+
+\addplot [
+	blue,
+	only marks,
+	mark = |,
+	mark size=1.5,
+	error bars/.cd,
+	y dir=both,
+	y fixed=0.03,
+	x dir = both,
+	x fixed=4 % 4° Abweichung
+] table {A1.txt};
+
+\addlegendentry{
+	\pgfplotstableread{parameters.dat}\parameters % Open the file Gnuplot wrote
+	\pgfplotstablegetelem{0}{0}\of\parameters \pgfmathsetmacro\paramA{\pgfplotsretval} % Get first element, save into \paramA
+	\pgfplotstablegetelem{1}{0}\of\parameters \pgfmathsetmacro\paramB{\pgfplotsretval}
+	$\pgfmathprintnumber{\paramB} \cdot \varphi
+		+ \pgfmathprintnumber{\paramA}$
+}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Winkelrichtgröße bestimmen}\label{dia:A1}
+\end{center}
+\end{figure}

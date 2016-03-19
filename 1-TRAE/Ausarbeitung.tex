@@ -1,0 +1,189 @@
+%&PDFLaTeX
+\documentclass[a4paper,11pt]{article}
+\usepackage{german}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Trägheitsmoment}, pdfauthor={Daniel Schubert, Sebastian Neubauer}, pdfsubject={Physikpraktikum}}
+\usepackage[separate-uncertainty=true]{siunitx}
+\pgfplotsset{width=13cm, height=7cm, compat=1.12}
+
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1.5ex plus0.5ex minus0.2ex}
+\setlength{\headheight}{26pt}
+\addtolength{\topmargin}{-0.2in}
+\addtolength{\headsep}{0.2in}
+\addtolength{\oddsidemargin}{-0.2in}
+\addtolength{\textwidth}{0.5in}
+
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+
+\newcommand{\stand}{18.03.16}
+\pagestyle{fancy}
+\rhead{\bf Stand: \stand \\ Seite \thepage}
+\lhead{\bf Mechanik\\Trägheitsmoment}
+\chead{\bf (TRAE)}
+\rfoot{}
+\lfoot{}
+\cfoot{}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+% Prinzipiell kann LaTeX auch Titelseiten erzeugen, ich habe mich
+% hier trotzdem für die händische Variante entschieden.
+\textbf{\Large Trägheitsmoment (TRAE)}\\[1ex]
+\textbf{\large Themengebiet Mechanik}\\[5ex]
+       Autoren: Daniel Schubert und Sebastian Neubauer\\
+       Gruppe 1, Team 16, Nummer 231\\
+       Technische Universität München\\[1ex]
+       \stand
+\end{center}
+
+\tableofcontents
+\clearpage
+
+\section{Einleitung}\label{sec:einleitung}
+Der Versuch zum Trägheitsmoment bestimmt das Trägheitsmoment einer Puppe und das eines Menschen in verschiedenen Haltungen auf einem Drehteller. Dazu werden die Eigenschaften der Drehscheiben auf verschiedene Weisen berechnet.
+
+Es soll unter anderem das Drehmoment einer Drehscheibe mit Hilfe eines Federkraftmessers bestimmt werden. Der Federkraftmesser sollte dazu im $90^\circ$ Winkel zu der Stange der Drehscheibe stehen. Für einen maximalen Fehler von $1\%$ gilt für die Abweichung $\Theta$: $cos(\Theta) \ge \frac{F}{1.01 \cdot F}$ und damit $\Theta \le acos\left(1 \over 1.01\right) \approx 8.1^\circ$
+
+Wenn man das Trägheitsmoment der Puppe, bzw. des Menschen, bestimmt, muss beachtet werden, dass sich der Schwerpunkt nicht allzu weit von der Drehachse entfernt, weil sonst der Satz von Steiner beachtet werden muss. Man kann für diesen Fall die Person als Zylinder mit $J_Z = \frac{mR^2}{2}$ approximieren. Um den Fehler unter $10\%$ zu halten gilt: $md^2 < 0.1 \cdot \frac{mR^2}{2} \Rightarrow d < \sqrt{0.05 R^2} \approx 0.22 \cdot R$ Der Schwerpunkt eines Menschen darf also nur ca. $\SI{3}{cm}$ von der Drehachse abweichen (bei einem Radius des Zylinders von $\SI{15}{cm}$), die Puppe um $\SI{4.5}{mm}$ ($R = \SI{2}{cm})$.
+
+\section{Verwendete Methoden}
+\subsection{Eigenschaften der Puppe}
+Es soll das Trägheitsmoment der Puppe bestimmt werden. Dazu werden zuerst die Eigenschaften des kleinen Drehtellers berechnet. Die Winkelrichtgröße $D^*_k$ kann über das rückstellende Drehmoment statisch bestimmt werden:
+\begin{equation}\label{equ:Drehmoment}
+F \cdot r_k = M = -D^*_k \cdot \varphi
+\end{equation}
+
+Um das Trägheitsmoment des Drehtellers selbst zu bestimmen wird ein Gewichtepaar angehängt und die Schwingungsdauer gemessen. Über $T = 2\pi \cdot \sqrt{J_\omega \over D^*}$ und das Trägheitsmoment der Gewichte
+\begin{equation}\label{equ:TraegheitsmomentZylinderBot}
+J_{Z\bot} = m \cdot \left(\frac{R_Z^2}{4} + \frac{h_Z^2}{12}\right)
+\end{equation}
+kann das Trägheitsmoment des Drehtellers $J_k$ berechnet werden:
+\begin{equation}\label{equ:Traegheitsmoment}
+T^2 = \frac{4\pi^2}{D^*_k} \cdot (J_k + J_Z)
+\end{equation}
+
+Für die Messung des Trägheitsmoments der Puppe wird die Puppe in mehreren Posen auf den Drehteller gesteckt und die Schwingungsdauer gemessen.
+
+Anschließend muss noch die Puppe selbst vermessen werden, damit sie mit dem Menschen verglichen werden kann. Dabei werden Masse $m_p$, Größe $h_p$, Hüftumfang $u_p$, Armlänge $l_{ap}$, Armumfang $u_{ap}$, Beinlänge $l_{bp}$, Beinumfang $u_{bp}$ und Kopfumfang $u_{kp}$ gemessen.
+
+\subsection{Eigenschaften des Menschen}
+Analog zu Puppe, werden die Größen des großen Drehtellers für den Menschen bestimmt ($D^*_g$, $J_g$). Zusätzlich wird das Eigenträgheitsmoment des Drehtellers noch abgeschätzt durch einen Zylinder:
+\begin{equation}\label{equ:TraegheitsmomentZylinder}
+J_g = \frac{\overbrace{\pi h_g R_g^2}^m \cdot  R_g^2}{2}
+\end{equation}
+Die Masse wird durch das Volumen und die gegebene Dichte geschätzt, dafür müssen die Höhe $h_g$ und der Radius $R_g$ gemessen werden.
+
+Auch hier wird die Schwingungsdauer $T$ gemessen, wenn der Mensch in verschiedenen Posen auf dem Drehteller steht. Masse $m_m$, Größe $h_m$, Hüftumfang $u_m$, Armlänge $l_{am}$, Armumfang $u_{am}$, Beinlänge $l_{bm}$, Beinumfang $u_{bm}$ und Kopfumfang $u_{km}$ des Menschen müssen auch erfasst werden.
+
+\section{Experimentelles Vorgehen und Messergebnisse}
+Sowohl bei den Gewichten als auch beim großen Drehteller wurde die Nummer 2 verwendet. Beim großen Drehteller wurde für die Bestimmung des Gewichts bzw. des Eigenträgheitsmoments die Stange vernachlässigt.
+
+\begin{enumerate}
+\item \textbf{Rückstellendes Drehmoment des kleinen Drehtellers}
+
+Die Kräfte bei Auslenkungen des kleinen Drehtellers wurden mit einem Federkraftmesser gemessen, dessen Genauigkeit bei ca. $\SI{0.03}{N}$ liegt, weil die Haftung im Messgerät sehr hoch war und sich deshalb bei geringen Winkeländerungen das Ergebnis nicht geändert hat.
+\begin{table}
+\begin{center}
+\begin{tabular}{cccc}\hline
+\textbf{Frequenz} & \textbf{Drehmoment} & \textbf{Leistung} & \textbf{Wirkungsgrad} \\
+\textbf{$f$ (Hz)} & \textbf{$M$ (Nm)} & \textbf{$P_\mathrm{m}$ (W)} & \textbf{$\eta$ (\%)} \\
+\hline
+$4,10\pm 0,20$ & $0,176\pm 0,017$ & $4,52\pm 0,50$ & $3,48\pm 0,56$ \\
+$4,50\pm 0,20$ & $0,153\pm 0,015$ & $4,32\pm 0,47$ & $3,33\pm 0,53$ \\
+$5,00\pm 0,20$ & $0,117\pm 0,012$ & $3,67\pm 0,40$ & $2,83\pm 0,45$ \\
+$5,40\pm 0,20$ & $0,059\pm 0,007$ & $1,98\pm 0,25$ & $1,53\pm 0,27$ \\
+$5,80\pm 0,20$ & $0,025\pm 0,005$ & $0,90\pm 0,19$ & $0,69\pm 0,17$ \\\hline
+\end{tabular}
+\caption{\label{tab:DrehmomentKlein}Kenndaten des Stirlingmotors bei einer Heizleistung
+    $P_\mathrm{h}=130\pm 15$~W: Drehmoment $M$, abgegebene mechanische Leistung
+    $P_\mathrm{m}$ und Wirkungsgrad $\eta$ bei der Frequenz $f$}
+\end{center}
+\end{table}
+\end{enumerate}
+
+
+Für die meisten Längenmessungen wurde ein Maßband verwendet, dabei schätzen wir die Ungenauigkeit auf $\SI{2}{mm}$. Nur für die Abmessung der Gewichte und die Dicke des großen Drehtellers wurde ein Messschieber verwendet, dessen Genauigkeit wir auf $\SI{1}{mm}$ schätzen.
+
+Die Messgenauigkeit des stärkeren Federkraftmessers, der für den großen Teller verwendet wurde, liegt bei $\SI{0.2}{N}$.
+
+Für die Messung von kleinen Gewichten wurde eine Küchenwaage mit einer Genauigkeit von $\SI{1}{g}$ verwendet. Die Menschen wurden mit einer anderen Waage gewogen, deren Genauigkeit bei ca. $\SI{1}{kg}$ liegt.
+
+Bei Zeitmessungen für den kleinen Drehteller wurde eine Lichtschranken-Uhr verwendet, deren Genauigkeit wir auf $\SI{1}{ms}$ schätzen, weil bei mehreren Messungen kein System in weiteren Ziffern erkennbar war. Für den großen Teller, wurde eine Stoppuhr und ein Computer mit Spannungsmessgerät verwendet. Die Genauigkeit der Zeitmessungen mit der Stoppuhr liegt bei ca. $\SI{0.1}{s}$ bedingt durch die Schwankung der Reaktionszeit (sowohl Beginn als auch Ende der Messung sind um die Reaktionszeit verschoben).
+
+Die Auslenkungswinkel wurden mit Beschriftungen und dem Auge abgeschätzt, sodass sich eine Ungenauigkeit von $\SI{3}{^\circ}$ ergibt.
+
+\section{Ergebnisse}
+\subsection{Aufgabe 10}
+\input{DiagA1.tex}
+
+\subsection{Aufgabe 11}
+\input{DiagA2.tex}
+
+\subsection{Aufgabe 13}
+\input{DiagA4.tex}
+
+\section{Diskussion}
+
+\section{Zusammenfassung}
+
+\begin{center}
+%\parbox{7cm}{\small
+Dies ist ein Beispiel, wie man eine
+Formel in der Ausarbeitung setzt.
+\begin{equation}\label{Linsengleichung}
+\frac{f}{a} + \frac{f'}{a'} = 1
+\end{equation}
+Die Gleichung~(\ref{Linsengleichung}) stellt die
+allgemeine Form der Linsengleichung dar.%}
+\end{center}
+
+\subsection{Tabellen}
+Tabellen werden durchnummeriert, so kann im  Text  darauf  verwiesen werden.
+Tabellen sollen mit einer  Titelzeile und Spalten"uberschriften versehen sein.
+Daten werden entweder im Text oder in Tabellen gezeigt, aber nicht in beidem.
+
+Tabelle~\ref{tab:Beispiel} ist ein Beispiel, wie Tabellen formatiert
+werden können.
+\begin{table}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+\textbf{Frequenz} & \textbf{Drehmoment}
+           & \textbf{Leistung} & \textbf{Wirkungsgrad} \\
+\textbf{$f$ (Hz)} & \textbf{$M$ (Nm)}
+           & \textbf{$P_\mathrm{m}$ (W)} & \textbf{$\eta$ (\%)} \\ \hline
+$4,10\pm 0,20$ & $0,176\pm 0,017$ & $4,52\pm 0,50$ & $3,48\pm 0,56$ \\
+$4,50\pm 0,20$ & $0,153\pm 0,015$ & $4,32\pm 0,47$ & $3,33\pm 0,53$ \\
+$5,00\pm 0,20$ & $0,117\pm 0,012$ & $3,67\pm 0,40$ & $2,83\pm 0,45$ \\
+$5,40\pm 0,20$ & $0,059\pm 0,007$ & $1,98\pm 0,25$ & $1,53\pm 0,27$ \\
+$5,80\pm 0,20$ & $0,025\pm 0,005$ & $0,90\pm 0,19$ & $0,69\pm 0,17$ \\ \hline
+\end{tabular}
+\caption{\label{tab:Beispiel}Kenndaten des Stirlingmotors bei einer Heizleistung
+    $P_\mathrm{h}=130\pm 15$~W: Drehmoment $M$, abgegebene mechanische Leistung
+    $P_\mathrm{m}$ und Wirkungsgrad $\eta$ bei der Frequenz $f$}
+\end{center}
+\end{table}
+
+
+
+\subsection{Abbildungen}
+Abbildung~\ref{abb:beispiel} ist ein Beispiel für die Formatierung
+einer Abbildung.
+\begin{figure}[t]
+\begin{center}
+%\includegraphics*[angle=270, width=11cm]{beispielbild}
+\caption{Frequenzabhängigkeit des Drehmoments der Stirlingmaschine.
+Die gestrichelte Linie dient der Augenführung}\label{abb:beispiel}
+\end{center}
+\end{figure}
+
+\end{document}

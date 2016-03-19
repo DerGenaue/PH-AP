@@ -1,0 +1,11 @@
+# Auslenkung	Drehmoment
+# Im Uhrzeigersinn
+-180	-0.39
+-135	-0.29
+-90	-0.19
+-45	-0.09
+# Gegen den Uhrzeigersinn
+45	0.10
+90	0.20
+135	0.30
+180	0.39

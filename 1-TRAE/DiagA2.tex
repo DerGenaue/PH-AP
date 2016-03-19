@@ -1,0 +1,74 @@
+\begin{figure}[h]
+\begin{center}
+%\includegraphics*[angle=270, width=11cm]{beispielbild}
+\begin{tikzpicture}
+\begin{axis}[
+	%title=Winkelrichtgröße bestimmen,
+	xlabel={$2mr^2$ [kg m$^2$]},
+	ylabel={$T^2$ [s$^2$]},
+	grid=major,
+	legend style={at={(0,1)},anchor=north west}
+]
+
+\addplot [no markers, green] gnuplot [raw gnuplot] {
+	f(x) = a + b * x; % Fit function
+	a = 0.01; b = 2000; % Set reasonable starting values here
+	set fit errorvariables;
+	fit f(x) '< cat A2-90.txt A2-135.txt | sort -n' using ($1 * $1 * 0.049 * 2):($2 * $2) via a, b;
+	plot [x=-0.0003:0.004] f(x);
+	set print 'parameters.dat'; % Open a file to save the parameters into
+	print a, a_err; % Write the parameters to file
+	print b, b_err;
+};
+
+\addlegendentry{
+	\pgfplotstableread{parameters.dat}\parameters % Open the file Gnuplot wrote
+	\pgfplotstablegetelem{0}{0}\of\parameters \pgfmathsetmacro\paramA{\pgfplotsretval} % Get first element, save into \paramA
+	\pgfplotstablegetelem{1}{0}\of\parameters \pgfmathsetmacro\paramB{\pgfplotsretval}
+	$\pgfmathprintnumber{\paramB} \cdot 2mr^2
+		+ \pgfmathprintnumber{\paramA}$
+}
+
+\addplot [
+	red,
+	only marks,
+	mark = |,
+	mark size=2,
+	error bars/.cd,
+	y dir=both,
+	y explicit,
+	x dir = both,
+	x explicit
+] table [x expr = {\thisrowno{0} * \thisrowno{0} * 0.049 * 2}, y expr = {\thisrowno{1} * \thisrowno{1}},
+	% Estimated error for T: 0.01s
+	y error expr = {sqrt(2) * 0.01 * \thisrowno{1}},
+	% r: 0.002m, m: 0.001kg
+	x error expr = {sqrt(0.001 ^ 2 * 4 * \thisrowno{0} ^ 4 + 0.002 ^ 2 * 16 * (0.049 * \thisrowno{0}) ^ 2)}
+	] {A2-90.txt};
+
+\addlegendentry{$90^\circ$}
+
+\addplot [
+	blue,
+	only marks,
+	mark = |,
+	mark size=2,
+	error bars/.cd,
+	y dir=both,
+	y explicit,
+	x dir = both,
+	x explicit
+] table [x expr = {\thisrowno{0} * \thisrowno{0} * 0.049 * 2}, y expr = {\thisrowno{1} * \thisrowno{1}},
+	% Estimated error for T: 0.01s
+	y error expr = {sqrt(2) * 0.01 * \thisrowno{1}},
+	% r: 0.002m, m: 0.001kg
+	x error expr = {sqrt(0.001 ^ 2 * 4 * \thisrowno{0} ^ 4 + 0.002 ^ 2 * 16 * (0.049 * \thisrowno{0}) ^ 2)}
+	] {A2-135.txt};
+
+\addlegendentry{$135^\circ$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Trägheitsmoment bestimmen}\label{dia:A2}
+\end{center}
+\end{figure}

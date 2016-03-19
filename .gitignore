@@ -1,0 +1,14 @@
+*.pdf
+*.log
+*.aux
+*.gnuplot
+*.table
+*.toc
+*~
+
+parameters.dat
+
+!TRAE.pdf
+# Only include the one in the root directory
+!/Ausarbeitung.pdf
+!Fehlerrechnung.pdf
