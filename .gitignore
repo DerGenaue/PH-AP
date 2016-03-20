@@ -4,6 +4,7 @@
 *.gnuplot
 *.table
 *.toc
+*.bat
 *~
 
 parameters.dat
