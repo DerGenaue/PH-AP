@@ -1,13 +1,15 @@
 %&PDFLaTeX
-\documentclass[a4paper,11pt,ngerman]{scrartcl}
+\documentclass[a4paper, 11pt, ngerman]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage{babel}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \usepackage{hyperref}
 \usepackage{cleveref}
+\usepackage{hyphenat}
 \usepackage[separate-uncertainty=true]{siunitx}
 
 \hypersetup{pdftitle={Trägheitsmoment}, pdfauthor={Daniel Schubert, Sebastian Neubauer}, pdfsubject={Physikpraktikum}}
@@ -27,6 +29,8 @@
 
 % Allow centered columns with fixed width
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\hyphenation{Träg-heits-mo-men-te Träg-heits-mo-men-tes}
 
 \newcommand{\stand}{18.03.16}
 \pagestyle{fancy}
@@ -193,21 +197,23 @@ Die Masse des Menschen beträgt $\SI{67}{kg}$, sein Hüftumfang $\SI{83}{cm}$, s
 \end{center}
 \end{table}
 
-Der Gesamtträgheitsmoment des Menschen ist damit $J_{m1} = \SI{0.64}{kgm^2}$, bzw. $J_{m2} = \SI{0.91}{kgm^2}$.
+Der Gesamtträgheitsmoment des Menschen ist damit $J_{m1} = \SI{0.64}{kgm^2}$, bzw. $J_{m2} = \SI{2.3}{kgm^2}$.
 
 \subsection{Aufgabe 18}
 Das Trägheitsmoment des Menschen kann auch aus dem Trägheitsmoment der Puppe extrapoliert werden. Dazu nähert man beide Formen mit Zylindern an und kommt zu folgender Formel:
 \begin{equation}
-J_m = \frac{m_m}{m_p} \cdot \left(\frac{u_m}{u_p}\right)^2 \cdot J_p
+J_m = \frac{m_m}{m_p} \cdot \left(\frac{h_m}{h_p}\right)^2 \cdot J_p
 \end{equation}
-Das ergibt $J_{m1} = \SI{1.6}{kgm^2}$ und $J_{m2} = \SI{6.1}{kgm^2}$.
+Das ergibt $J_{m1} = \SI{0.85}{kgm^2}$ und $J_{m2} = \SI{3.3}{kgm^2}$.
 
 \section{Diskussion}
 Die berechneten Werte für $D^*_g$ aus Aufgabe 13 und 15 unterscheiden sich sehr stark. Dass sich die Unsicherheitsbereiche nicht überschneiden legt nahe, dass mindestens für einen der beiden Werte, größere Unsicherheiten existieren als angenommen wurden. Das ist vermutlich für letzteren Wert (dynamische Berechnung) der Fall. Zum einen gibt es nur drei Werte für die Zeit und zum anderen wurde $J_g$ rechnerisch aus einer Approximation des Drehtellers erstellt. Der Fehler dieser Annäherung ist vermutlich größer als durch die Unsicherheiten der Längen berechnet wurde. Z.B. wurde die Stange in der Mitte des Tellers vernachlässigt.
 
-\section{Zusammenfassung}
-
+\subsection{Aufgabe 19}
+Die Ergebnisse für ausgestreckte Arme haben eine größere Differenz, wenn man den Menschen und die Puppe vergleicht.
 
 \input{6_Fragen.tex}
+
+\section{Anhang}
 
 \end{document}
