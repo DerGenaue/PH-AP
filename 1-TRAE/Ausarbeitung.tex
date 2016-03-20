@@ -1,15 +1,16 @@
 %&PDFLaTeX
-\documentclass[a4paper,11pt]{article}
-\usepackage{german}
+\documentclass[a4paper,11pt,ngerman]{scrartcl}
 \usepackage[utf8]{inputenc}
+\usepackage{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \usepackage{hyperref}
-\hypersetup{pdftitle={Trägheitsmoment}, pdfauthor={Daniel Schubert, Sebastian Neubauer}, pdfsubject={Physikpraktikum}}
 \usepackage{cleveref}
 \usepackage[separate-uncertainty=true]{siunitx}
+
+\hypersetup{pdftitle={Trägheitsmoment}, pdfauthor={Daniel Schubert, Sebastian Neubauer}, pdfsubject={Physikpraktikum}}
 \pgfplotsset{width=13cm, height=7cm, compat=1.12}
 
 \setlength{\parindent}{0ex}
@@ -102,19 +103,19 @@ Bei Zeitmessungen für den kleinen Drehteller wurde eine Lichtschranken-Uhr verw
 Die Auslenkungswinkel wurden mit Beschriftungen und dem Auge abgeschätzt, sodass sich eine Ungenauigkeit von $\SI{2}{^\circ}$ ergibt.
 
 \section{Ergebnisse}
-% Aufgabe 10
+\subsection{Aufgabe 10}
 \input{DiagA1.tex}
 Die Ausgleichsgerade für die Kraftmessung in Abhängigkeit von der Auslenkung des kleinen Drehtellers hat folgende Gleichung:
 \begin{equation}
 F = \SI{0.004 \pm 0.011}{N} + \underbrace{\SI{2.17 \pm 0.09}{10^{-3}N}}_{\text{Steigung } a_1} \cdot \frac{180}{\pi} \cdot \varphi
 \end{equation}
-Wie leicht erkannt werden kann, liegt der Ursprung innerhalb des Fehlerbereichs der Geraden. $D^*$ kann durch Gleichung \ref{equ:Drehmoment} berechnet werden, indem nach $D^*$ umgestellt wird: $D^* = -r_k \cdot a_1 \cdot \frac{180}{\pi} = \SI{0.0236 \pm 0.0010}{Nm}$\\
+Wie leicht erkannt werden kann, liegt der Ursprung innerhalb des Fehlerbereichs der Geraden. $D^*_k$ kann durch \cref{equ:Drehmoment} berechnet werden, indem nach $D^*_k$ umgestellt wird: $D^*_k = -r_k \cdot a_1 \cdot \frac{180}{\pi} = \SI{0.0236 \pm 0.0010}{Nm}$\\
 Dabei wurde die Unsicherheit der Geradensteigung und des Radius miteinberechnet.
 
-% Aufgabe 11
+\subsection{Aufgabe 11}
 Um das Eigenträgheitsmoment des Tellers zu bestimmen, wurden Gewichte in unterschiedlichen Abständen angehängt.
 Die Zylinder haben die folgenden Maße: $m = \SI{49}{g}$, $h = \SI{8}{mm}$, $d = \SI{3.0}{cm}$
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}\label{tab:Gewichte}
 \begin{tabular}{r|ccccc}\hline
 \textbf{Abstand} ($\SI{\pm 0.2}{cm}$) [cm] & $0$ & $8$ & $11$ & $15$ & $19$ \\
@@ -140,32 +141,38 @@ J_k = \frac{a_3}{a_2}
 \end{equation}
 und
 \begin{equation}
-D^* = \frac{4\pi^2}{a_2}.
+D^*_k = \frac{4\pi^2}{a_2}.
 \end{equation}
-Damit können $D^* = \SI{0.02326 \pm 0.00028}{Nm}$ und $J_k = \SI{2.71 \pm 0.24}{10^{-4}kgm^2}$ berechnet werden. Da $J_k$ auch von $a_3$ abhängt, muss hier noch diese Unsicherheit miteinberechnet werden. In den Unsicherheiten von $J_k$ ist auch die Unsicherheit der Masse enthalten. Der jetzt ausgerechnete Wert von $D^*$ ist mehr als $3\times$ so genau wie der vorherige Wert (liegt aber im Unsicherheitsbereich des vorherigen Wertes), deshalb sollte mit diesem Wert weitergerechnet werden.
+Damit können $D^*_k = \SI{0.02326 \pm 0.00028}{Nm}$ und $J_k = \SI{2.71 \pm 0.24}{10^{-4}kgm^2}$ berechnet werden. Da $J_k$ auch von $a_3$ abhängt, muss hier noch diese Unsicherheit miteinberechnet werden. In den Unsicherheiten von $J_k$ ist auch die Unsicherheit der Masse enthalten. Der jetzt ausgerechnete Wert von $D^*_k$ ist mehr als $3\times$ so genau wie der vorherige Wert (liegt aber im Unsicherheitsbereich des vorherigen Wertes), deshalb sollte mit diesem Wert weitergerechnet werden.
 
-% Aufgabe 12
+\subsection{Aufgabe 12}\label{sub:A12}
 Um das Trägheitsmoment der Puppe in den verschiedenen Positionen ($J_{p1}$ mit angelegten Armen und $J_{p2}$ mit ausgestreckten Armen) zu berechnen, kann auch Gleichung (18) aus der Aufgabenstellung zu Hilfe genommen werden. Damit kommt man auf folgende Gleichung ($T_0$ ist die Schwingungsdauer ohne Gewichte und ohne Puppe)
-\begin{equation}
+\begin{equation}\label{equ:TraegheitsmomentPuppe}
 J_p = J_k \cdot \left(\frac{T_p^2}{T_0^2} - 1\right)
 \end{equation}
 und $J_{p1} = \SI{7.4 \pm 0.8}{10^{-5}kgm^2}$, bzw. $J_{p2} = \SI{28.5 \pm 1.2}{10^{-5}kgm^2}$. Das Verhältnis der Trägheitsmomente ist damit ca. $\frac{J_{p2}}{J_{p1}} = 3.9$
 
-% Aufgabe 13
+\subsection{Aufgabe 13}
 \input{DiagA4.tex}
 Die Funktion der Ausgleichsgerade für die Bestimmung der Winkelrichtgröße des großen Drehtellers lautet wie folgt:
 \begin{equation}
 F = \SI{0.06 \pm 0.06}{N} + \underbrace{\SI{0.1280 \pm 0.0011}{N}}_{a_4} \cdot \frac{180}{\pi} \cdot \varphi
 \end{equation}
-Analog zu Aufgabe 10 kann $D^* = \SI{2.127 \pm 0.024}{Nm}$ berechnet werden.
+Analog zu Aufgabe 10 kann $D^*_g = \SI{2.127 \pm 0.024}{Nm}$ berechnet werden.
 
-% Aufgabe 14
+\subsection{Aufgabe 14}
 Aus dem Volumen des Zylinders lässt sich auf sein Trägheitsmoment schließen: $J_g = \frac{\pi h_g \rho R_g^4}{2} = \SI{0.69 \pm 0.04}{kgm^2}$
 
-% Aufgabe 15
-$J_g$ lässt sich sowohl aus der Schwingungsdauer und dem Eigenträgheitsmoment als auch aus den statischen Drehmomenten bestimmen. Die dynamische Berechnung geht wie folgt: $J_g = \frac{D^*T^2}{4\pi^2} = $
+\subsection{Aufgabe 15}
+$D^*_g$ lässt sich sowohl aus der Schwingungsdauer und dem Eigenträgheitsmoment als auch aus den statischen Drehmomenten bestimmen. Die dynamische Berechnung geht wie folgt: $D^*_g = \frac{4\pi^2}{T^2} \cdot J_g = \SI{2.41 \pm 0.13}{kgm^2}$ mit $T = \SI{3.36 \pm 0.07}{s}$
+
+Dieser Wert ist deutlich größer und ungenauer als der Wert, der durch die statischen Messungen berechnet wurde, die Unsicherheitsbereiche überschneiden sich noch nicht einmal.
+
+\subsection{Aufgabe 16}
+Das Trägheitsmoment des Menschen kann Analog zu \cref{sub:A12} mit \cref{equ:TraegheitsmomentPuppe} berechnet werden. $J_{m1}$ ist das Trägheitsmoment mit angelegten Armen und $J_{m2}$ mit ausgestreckten Armen: $J_{m1} = \SI{}{kgm^2}$, $J_{m2}$
 
 \section{Diskussion}
+Die berechneten Werte für $D^*_g$ aus Aufgabe 13 und 15 unterscheiden sich sehr stark. Dass sich die Unsicherheitsbereiche nicht überschneiden legt nahe, dass mindestens für einen der beiden Werte, größere Unsicherheiten existieren als angenommen wurden. Das ist vermutlich für letzteren Wert (dynamische Berechnung) der Fall. Zum einen gibt es nur drei Werte für die Zeit und zum anderen wurde $J_g$ rechnerisch aus einer Approximation des Drehtellers erstellt. Der Fehler dieser Annäherung ist vermutlich größer als durch die Unsicherheiten der Längen berechnet wurde. Z.B. wurde die Stange in der Mitte des Tellers vernachlässigt.
 
 \section{Zusammenfassung}
 
