@@ -5,6 +5,7 @@
 *.table
 *.toc
 *.bat
+*.out
 *~
 
 parameters.dat

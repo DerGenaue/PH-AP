@@ -30,9 +30,9 @@
 
 \newcommand{\stand}{18.03.16}
 \pagestyle{fancy}
-\rhead{\bf Stand: \stand \\ Seite \thepage}
-\lhead{\bf Mechanik\\Trägheitsmoment}
-\chead{\bf (TRAE)}
+\rhead{\textbf{Stand: \stand \\ Seite \thepage}}
+\lhead{\textbf{Mechanik\\Trägheitsmoment}}
+\chead{\textbf{(TRAE)}}
 \rfoot{}
 \lfoot{}
 \cfoot{}
@@ -164,12 +164,43 @@ Analog zu Aufgabe 10 kann $D^*_g = \SI{2.127 \pm 0.024}{Nm}$ berechnet werden.
 Aus dem Volumen des Zylinders lässt sich auf sein Trägheitsmoment schließen: $J_g = \frac{\pi h_g \rho R_g^4}{2} = \SI{0.69 \pm 0.04}{kgm^2}$
 
 \subsection{Aufgabe 15}
-$D^*_g$ lässt sich sowohl aus der Schwingungsdauer und dem Eigenträgheitsmoment als auch aus den statischen Drehmomenten bestimmen. Die dynamische Berechnung geht wie folgt: $D^*_g = \frac{4\pi^2}{T^2} \cdot J_g = \SI{2.41 \pm 0.13}{kgm^2}$ mit $T = \SI{3.36 \pm 0.07}{s}$
+$D^*_g$ lässt sich sowohl aus der Schwingungsdauer und dem Eigenträgheitsmoment als auch aus den statischen Drehmomenten bestimmen. Die dynamische Berechnung geht wie folgt: $D^*_g = \frac{4\pi^2}{T^2} \cdot J_g = \SI{2.41 \pm 0.13}{Nm}$ mit $T = \SI{3.36 \pm 0.07}{s}$
 
 Dieser Wert ist deutlich größer und ungenauer als der Wert, der durch die statischen Messungen berechnet wurde, die Unsicherheitsbereiche überschneiden sich noch nicht einmal.
 
 \subsection{Aufgabe 16}
-Das Trägheitsmoment des Menschen kann Analog zu \cref{sub:A12} mit \cref{equ:TraegheitsmomentPuppe} berechnet werden. $J_{m1}$ ist das Trägheitsmoment mit angelegten Armen und $J_{m2}$ mit ausgestreckten Armen: $J_{m1} = \SI{}{kgm^2}$, $J_{m2}$
+Das Trägheitsmoment des Menschen kann Analog zu \cref{sub:A12} mit \cref{equ:TraegheitsmomentPuppe} berechnet werden. $J_{m1}$ ist das Trägheitsmoment mit angelegten Armen und $J_{m2}$ mit ausgestreckten Armen: $J_{m1} = \SI{0.89 \pm 0.09}{kgm^2}$ und $J_{m2} = \SI{2.14 \pm 0.018}{kgm^2}$
+
+\subsection{Aufgabe 17}
+Die Masse des Menschen beträgt $\SI{67}{kg}$, sein Hüftumfang $\SI{83}{cm}$, seine Größe $\SI{1.82}{m}$, sein Armumfang $\SI{26}{cm}$, seine Armlänge $\SI{70}{cm}$, sein Beinumfang $\SI{42}{cm}$, seine Beinlänge $\SI{95}{cm}$, sein Kopfumfang $\SI{60}{cm}$ und seine Rumpfhöhe $\SI{60}{cm}$.
+\begin{table}[ht]
+\begin{center}\label{tab:Einzeltraegheitsmomente}
+\begin{tabular}{r|ccc}\hline
+\textbf{Körperteil} & Kopf & angelegte Arme ($2\times$) & ausgebreitete Arme ($2\times$) \\
+\hline
+\textbf{Massenanteil} [\%] & $7.3$ & $10.4$ & $10.4$ \\
+\textbf{Trägheitsmoment} [kgm$^2$] & $0.018$ & $0.0030$ & $0.14$ \\
+\textbf{Abstand} [cm] & $0$ & $17$ & $48$ \\
+\hline\end{tabular}
+\begin{tabular}{r|ccc}\hline
+\textbf{Körperteil} & Beine ($2\times$) & Rumpf \\
+\hline
+\textbf{Massenanteil} [\%] & $33.4$ & $48.9$ \\
+\textbf{Trägheitsmoment} [kgm$^2$] & $0.025$ & $0.14$ \\
+\textbf{Abstand} [cm] & $10$ & $0$ \\
+\hline\end{tabular}
+\caption{Einzelträgheitsmomente des Menschen}
+\end{center}
+\end{table}
+
+Der Gesamtträgheitsmoment des Menschen ist damit $J_{m1} = \SI{0.64}{kgm^2}$, bzw. $J_{m2} = \SI{0.91}{kgm^2}$.
+
+\subsection{Aufgabe 18}
+Das Trägheitsmoment des Menschen kann auch aus dem Trägheitsmoment der Puppe extrapoliert werden. Dazu nähert man beide Formen mit Zylindern an und kommt zu folgender Formel:
+\begin{equation}
+J_m = \frac{m_m}{m_p} \cdot \left(\frac{u_m}{u_p}\right)^2 \cdot J_p
+\end{equation}
+Das ergibt $J_{m1} = \SI{1.6}{kgm^2}$ und $J_{m2} = \SI{6.1}{kgm^2}$.
 
 \section{Diskussion}
 Die berechneten Werte für $D^*_g$ aus Aufgabe 13 und 15 unterscheiden sich sehr stark. Dass sich die Unsicherheitsbereiche nicht überschneiden legt nahe, dass mindestens für einen der beiden Werte, größere Unsicherheiten existieren als angenommen wurden. Das ist vermutlich für letzteren Wert (dynamische Berechnung) der Fall. Zum einen gibt es nur drei Werte für die Zeit und zum anderen wurde $J_g$ rechnerisch aus einer Approximation des Drehtellers erstellt. Der Fehler dieser Annäherung ist vermutlich größer als durch die Unsicherheiten der Längen berechnet wurde. Z.B. wurde die Stange in der Mitte des Tellers vernachlässigt.
